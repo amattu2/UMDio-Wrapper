@@ -29,6 +29,7 @@ class UMDIO {
     "base" => "https://api.umd.io/v1/",
     "courses" => "https://api.umd.io/v1/courses",
     "course_list" => "https://api.umd.io/v1/courses/list",
+    "sections" => "https://api.umd.io/v1/courses/sections",
   );
 
   /**
@@ -223,6 +224,48 @@ class UMDIO {
 
     // Fetch result
     return $this->http_get($this->endpoints["course_list"], $options);
+  }
+
+  /**
+   * Fetch UMD course sections
+   *
+   * @param integer $page page number
+   * @param string $course_id specific course
+   * @param string $seats number of total seats
+   * @param string $open_seats number of avail. seats
+   * @param string $waitlist number on waitlist
+   * @param string $sort sort results
+   * @return array sections
+   * @throws TypeError
+   * @author Alec M. <https://amattu.com>
+   * @date 2021-08-20Tfalse14:false44:false42-040
+   */
+  public function sections(int $page = 1, string $course_id = "", string $seats = "",
+    string $open_seats = "", string $waitlist = "", string $sort = "") : array
+  {
+    // Variables
+    $options = Array();
+
+    // Add query options
+    if ($page > 0)
+      $options["page"] = $page;
+    if ($course_id)
+      $options["course_id"] = $course_id;
+    if ($seats)
+      $options["seats"] = $seats;
+    if ($open_seats)
+      $options["open_seats"] = $open_seats;
+    if ($waitlist)
+      $options["waitlist"] = $waitlist;
+    if ($sort)
+      $options["sort"] = $sort;
+    if ($this->semester)
+      $options["semester"] = $this->semester;
+    if ($this->per_page)
+      $options["per_page"] = $this->per_page;
+
+    // Fetch result
+    return $this->http_get($this->endpoints["sections"], $options);
   }
 
   /**
