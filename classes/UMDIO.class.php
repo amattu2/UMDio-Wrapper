@@ -28,6 +28,7 @@ class UMDIO {
   private $endpoints = Array(
     "base" => "https://api.umd.io/v1/",
     "courses" => "https://api.umd.io/v1/courses",
+    "course_list" => "https://api.umd.io/v1/courses/list",
   );
 
   /**
@@ -196,6 +197,35 @@ class UMDIO {
   }
 
   /**
+   * Get minified course listing
+   *
+   * @param integer $page page number
+   * @param string $sort sort results
+   * @return array minified course listing
+   * @throws TypeError
+   * @author Alec M. <https://amattu.com>
+   * @date 2021-08-20
+   */
+  public function course_list(int $page = 1, string $sort = "") : array
+  {
+    // Variables
+    $options = Array();
+
+    // Add query options
+    if ($page > 0)
+      $options["page"] = $page;
+    if ($sort)
+      $options["sort"] = $sort;
+    if ($this->semester)
+      $options["semester"] = $this->semester;
+    if ($this->per_page)
+      $options["per_page"] = $this->per_page;
+
+    // Fetch result
+    return $this->http_get($this->endpoints["course_list"], $options);
+  }
+
+  /**
    * Build a CURLOPT_POSTFIELDS valid query string
    *
    * @param array KEY=>VALUE pairs
@@ -251,7 +281,7 @@ class UMDIO {
       return [];
     if (curl_getinfo($handle, CURLINFO_HTTP_CODE) !== 200)
       return [];
-      
+
     // Parse Result
     if (curl_getinfo($handle, CURLINFO_CONTENT_TYPE) === "application/json")
       return json_decode($result, true);
