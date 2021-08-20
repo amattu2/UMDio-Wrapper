@@ -158,6 +158,42 @@ class UMDIO {
     return $this;
   }
 
+  /**
+   * Fetch UMD Courses
+   *
+   * @param integer $page page number
+   * @param string $credits credit search
+   * @param string $gen_ed gened search
+   * @param string $sort sort results
+   * @return array classes
+   * @throws TypeError
+   * @author Alec M. <https://amattu.com>
+   * @date 2021-08-20
+   */
+  public function courses(int $page = 1, string $credits = "", string $gen_ed = "", string $sort = "") : array
+  {
+    // Variables
+    $options = Array();
+
+    // Add query options
+    if ($page > 0)
+      $options["page"] = $page;
+    if ($credits)
+      $options["credits"] = $credits;
+    if ($gen_ed && strlen($gen_ed) === 4)
+      $options["gen_ed"] = $gen_ed;
+    if ($sort)
+      $options["sort"] = $sort;
+    if ($this->semester)
+      $options["semester"] = $this->semester;
+    if ($this->dept_id)
+      $options["dept_id"] = $this->dept_id;
+    if ($this->per_page)
+      $options["per_page"] = $this->per_page;
+
+    // Fetch result
+    return $this->http_get($this->endpoints["courses"], $options);
+  }
 
   /**
    * Build a CURLOPT_POSTFIELDS valid query string
