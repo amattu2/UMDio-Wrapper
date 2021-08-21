@@ -66,7 +66,58 @@ print_r($courses);
 
 Output
 ```JSON
-tbd
+Array
+(
+  [0] => Array
+  (
+    ["course_id"] => INST123
+    ["semester"] => 202108
+    ["name"] => Databases for All
+    ["dept_id"] => INST
+    ["department"] => Information Studies
+    ["credits"] => 3
+    ["description"] => An introduction to relational databases for students with no previous programming experience. Provides a means for students of diverse backgrounds to successfully learn how to store, retrieve, and maintain data in relational databases. Topics include a brief comparison of database systems with an emphasis on relational databases, fundamental relational database concepts, and data types. Includes technical approaches to accessing information stored in relational databases.
+    ["grading_method"] => Array
+    (
+      [0] => Regular
+      [1] => Pass-Fail
+      [2] => Audit
+    )
+
+    ["gen_ed"] => Array
+    (
+      [0] => Array
+      (
+          [0] => DSSP
+      )
+
+    )
+
+    ["core"] => Array
+    (
+    )
+
+    ["relationships"] => Array
+    (
+      ["coreqs"] =>
+      ["prereqs"] =>
+      ["formerly"] =>
+      ["restrictions"] =>
+      ["additional_info"] =>
+      ["also_offered_as"] =>
+      ["credit_granted_for"] =>
+    )
+
+    ["sections"] => Array
+    (
+      [0] => INST123-0102
+      [1] => INST123-0103
+      [2] => INST123-0101
+    )
+  )
+
+  ...
+)
 ```
 
 ## course_list(int $page, string $sort)
@@ -78,7 +129,22 @@ print_r($wrapper->course_list());
 
 Output
 ```JSON
-tbd
+Array
+(
+  [0] => Array
+  (
+    ["course_id"] => AASP100
+    ["name"] => Introduction to African American Studies
+  )
+
+  [1] => Array
+  (
+    ["course_id"] => AASP100H
+    ["name"] => Introduction to African American Studies
+  )
+
+  ...
+)
 ```
 
 ## sections(int $page, string $course_id, string $seats, string $open_seats, string $waitlist, string $sort)
@@ -90,7 +156,39 @@ print_r($wrapper->sections());
 
 Output
 ```JSON
-tbd
+Array
+(
+  [0] => Array
+  (
+    ["course"] => AASP100
+    ["section_id"] => AASP100-0101
+    ["semester"] => 202108
+    ["number"] => 0101
+    ["seats"] => 31
+    ["meetings"] => Array
+    (
+      [0] => Array
+      (
+        ["days"] => MWF
+        ["room"] => 1132
+        ["building"] => TYD
+        ["classtype"] =>
+        ["start_time"] => 10:00am
+        ["end_time"] => 10:50am
+      )
+
+      ...
+
+    )
+    ["open_seats"] => 0
+    ["waitlist"] => 05
+    ["instructors"] => Array
+    (
+      [0] => Shane Walsh
+    )
+  )
+  ...
+)
 ```
 
 ## section(string $section)
@@ -161,15 +259,15 @@ Array
       [1] => Audit
     )
 
-    [gen_ed] => Array
+    ["gen_ed"] => Array
     (
     )
 
-    [core] => Array
+    ["core"] => Array
     (
     )
 
-    [relationships] => Array
+    ["relationships"] => Array
     (
       ["coreqs"] =>
       ["prereqs"] => 1 course with a minimum grade of C- from (INST201, INST301); and minimum grade of C- in INST126, INST314, STAT100, MATH115, and PSYC100.
@@ -180,7 +278,7 @@ Array
       ["credit_granted_for"] =>
     )
 
-    [sections] => Array
+    ["sections"] => Array
     (
       [0] => INST414-0101
       [1] => INST414-0102
@@ -368,8 +466,8 @@ Array
 (
   [0] => Array
   (
-      [route_id] => 104
-      [title] => 104 College Park Metro
+      ["route_id"] => 104
+      ["title"] => 104 College Park Metro
   )
 
   ...
