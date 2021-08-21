@@ -34,6 +34,7 @@ class UMDIO {
     "course_info" => "https://api.umd.io/v1/courses/%s",
     "semesters" => "https://api.umd.io/v1/courses/semesters",
     "departments" => "https://api.umd.io/v1/courses/departments",
+    "professors" => "https://api.umd.io/v1/professors",
   );
 
   /**
@@ -233,7 +234,7 @@ class UMDIO {
    * Fetch UMD course sections
    *
    * @param integer $page page number
-   * @param string $course_id specific course
+   * @param string $course_id 7-8 digit course id
    * @param string $seats number of total seats
    * @param string $open_seats number of avail. seats
    * @param string $waitlist number on waitlist
@@ -296,7 +297,7 @@ class UMDIO {
   /**
    * Get a specific course details
    *
-   * @param string $course_id course ID
+   * @param string $course_id 7-8 digit course id
    * @return array course info
    * @throws TypeError
    * @author Alec M. <https://amattu.com>
@@ -339,6 +340,34 @@ class UMDIO {
   public function departments() : array
   {
     return $this->http_get($this->endpoints["departments"]);
+  }
+
+  /**
+   * Returns a list of professors using either
+   * the professor's name or a course ID
+   *
+   * @param string $name professor full name
+   * @param string $course_id 7-8 digit course id
+   * @return array professors matching query
+   * @throws TypeError
+   * @author Alec M. <https://amattu.com>
+   * @date 2021-08-21
+   */
+  public function professors(string $name = "", string $course_id = "") : array
+  {
+    // Variables
+    $options = Array();
+
+    // Add query options
+    if (!$name && !$course_id)
+      return [];
+    if ($name)
+      $options["name"] = urlencode($name);
+    if ($course_id)
+      $options["course_id"] = $course_id;
+
+    // Fetch result
+    return $this->http_get($this->endpoints["professors"], $options);
   }
 
   /**

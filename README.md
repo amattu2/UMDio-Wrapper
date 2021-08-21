@@ -228,3 +228,43 @@ Array
     ...
 )
 ```
+
+## professors(string $name, string $course_id)
+Fetch an array of professors by either their full name or a course ID.
+
+By name
+```PHP
+print_r($wrapper->professors("LaRia Rogers"));
+```
+
+By `course_id`
+```PHP
+print_r($wrapper->professors("", "CMSC216"));
+```
+
+Output
+```JSON
+Array
+(
+  [0] => Array
+  (
+    ["name"] => LaRia Rogers
+    ["taught"] => Array
+    (
+      [0] => Array
+      (
+          ["course_id"] => INST208M
+          ["semester"] => 202001
+      )
+
+      [1] => Array
+      (
+          ["course_id"] => INST352
+          ["semester"] => 202001
+      )
+
+      ...
+    )
+  )
+)
+```
