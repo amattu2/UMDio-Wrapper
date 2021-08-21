@@ -173,7 +173,7 @@ class UMDIO {
   }
 
   /**
-   * Fetch UMD Courses
+   * Fetch all University of Maryland Courses
    *
    * @param integer $page page number
    * @param string $credits credit search
@@ -210,7 +210,7 @@ class UMDIO {
   }
 
   /**
-   * Get minified course listing
+   * Get minified University of Maryland course listing
    *
    * @param integer $page page number
    * @param string $sort sort results
@@ -239,7 +239,7 @@ class UMDIO {
   }
 
   /**
-   * Fetch UMD course sections
+   * Fetch all University of Maryland course sections
    *
    * @param integer $page page number
    * @param string $course_id 7-8 digit course id
@@ -281,7 +281,7 @@ class UMDIO {
   }
 
   /**
-   * Get a specific course section's info
+   * Get a specific course's section details
    *
    * @param string $section section ID
    * @return array course section info
@@ -303,7 +303,7 @@ class UMDIO {
   }
 
   /**
-   * Get a specific course details
+   * Get a specific course's details
    *
    * @param string $course_id 7-8 digit course id
    * @return array course info
@@ -338,7 +338,7 @@ class UMDIO {
   }
 
   /**
-   * Get an array of UMD departments
+   * Get an array of University of Maryland departments
    *
    * @return array UMD departments
    * @throws None
@@ -351,7 +351,7 @@ class UMDIO {
   }
 
   /**
-   * Get an array of UMD majors
+   * Get an array of University of Maryland majors
    *
    * @return array UMD majors
    * @throws None
@@ -392,7 +392,7 @@ class UMDIO {
   }
 
   /**
-   * Get a full list of UMD buildings
+   * Get a full list of University of Maryland buildings
    *
    * @return array buildings on UMD campus
    * @throws None
@@ -424,7 +424,7 @@ class UMDIO {
   }
 
   /**
-   * Get full UMD bus route listing
+   * Get full University of Maryland bus route listing
    *
    * @return array bus routes
    * @throws None
@@ -437,7 +437,7 @@ class UMDIO {
   }
 
   /**
-   * Get info about a UMD bus route
+   * Get info about a specific University of Maryland bus route
    *
    * @param string $route_id bus route id
    * @return array info about bus route
@@ -456,7 +456,7 @@ class UMDIO {
   }
 
   /**
-   * Get full list of UMD DOT bus stops
+   * Get full list of University of Maryland DOT bus stops
    *
    * @return array bus stops
    * @throws None
@@ -469,7 +469,7 @@ class UMDIO {
   }
 
   /**
-   * Get details about the selected bus stop
+   * Get details about a select University of Maryland DOT bus stop
    *
    * @param string $stop_id UMD bus stop ID
    * @return array bus stop info
@@ -488,7 +488,7 @@ class UMDIO {
   }
 
   /**
-   * Get the bus schedule by bus route id
+   * Get the bus stop schedule by bus route id
    *
    * @param string $route_id bus route
    * @return array bus schedule information
