@@ -63,4 +63,7 @@ echo "<pre>";
 //print_r($wrapper->bus_stops());
 
 // List info about a bus stop
-print_r($wrapper->bus_stop("laplat"));
+//print_r($wrapper->bus_stop("laplat"));
+
+// List the bus route schedule
+//print_r($wrapper->bus_schedule("104"));

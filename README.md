@@ -458,3 +458,56 @@ Array
   )
 )
 ```
+
+## bus_route(string $route_id)
+Returns information about the selected bus route. An extension to `UMDIO->bus_route`.
+
+```PHP
+print_r($wrapper->bus_schedule("104"));
+```
+
+Output
+```JSON
+Array
+(
+  [0] => Array
+  (
+    ["route"] => 104
+    ["days"] => f
+    ["direction"] => cpmetro
+    ["stops"] => Array
+    (
+      [0] => Array
+      (
+        ["name"] => Regents Drive Garage
+        ["stop_id"] => regdrgar_d
+      )
+    )
+    ["trips"] => Array
+    (
+      [0] => Array
+      (
+        [0] => Array
+        (
+          ["stop_id"] => regdrgar_d
+          ["arrival_time"] => 05:40:00
+          ["arrival_time_secs"] => 20400000
+        )
+
+      )
+
+      [1] => Array
+      (
+        [0] => Array
+        (
+          ["stop_id"] => regdrgar_d
+          ["arrival_time"] => 06:00:00
+          ["arrival_time_secs"] => 21600000
+        )
+      )
+
+      ...
+    )
+  )
+)
+```

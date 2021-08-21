@@ -42,6 +42,7 @@ class UMDIO {
     "bus_route" => "https://api.umd.io/v1/bus/routes/%s",
     "bus_stops" => "https://api.umd.io/v1/bus/stops",
     "bus_stop" => "https://api.umd.io/v1/bus/stops/%s",
+    "bus_schedule" => "https://api.umd.io/v1/bus/routes/%s/schedules",
   );
 
   /**
@@ -484,6 +485,25 @@ class UMDIO {
 
     // Fetch result
     return $this->http_get(sprintf($this->endpoints["bus_stop"], $stop_id));
+  }
+
+  /**
+   * Get the bus schedule by bus route id
+   *
+   * @param string $route_id bus route
+   * @return array bus schedule information
+   * @throws TypeError
+   * @author Alec M. <https://amattu.com>
+   * @date 2021-08-21
+   */
+  public function bus_schedule(string $route_id) : array
+  {
+    // Check arguments
+    if (!$route_id)
+      return [];
+
+    // Fetch result
+    return $this->http_get(sprintf($this->endpoints["bus_schedule"], $route_id));
   }
 
   /**
