@@ -412,7 +412,7 @@ class UMDIO {
   {
     // Check arguments
     if (!$building_id)
-      return "";
+      return [];
 
     // Fetch result
     return $this->http_get(sprintf($this->endpoints["building"], $building_id));
