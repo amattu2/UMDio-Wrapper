@@ -35,6 +35,7 @@ class UMDIO {
     "semesters" => "https://api.umd.io/v1/courses/semesters",
     "departments" => "https://api.umd.io/v1/courses/departments",
     "professors" => "https://api.umd.io/v1/professors",
+    "majors" => "https://api.umd.io/v1/majors/list",
   );
 
   /**
@@ -340,6 +341,19 @@ class UMDIO {
   public function departments() : array
   {
     return $this->http_get($this->endpoints["departments"]);
+  }
+
+  /**
+   * Get an array of UMD majors
+   *
+   * @return array UMD majors
+   * @throws None
+   * @author Alec M. <https://amattu.com>
+   * @date 2021-08-21
+   */
+  public function majors() : array
+  {
+    return $this->http_get($this->endpoints["majors"]);
   }
 
   /**

@@ -38,6 +38,9 @@ echo "<pre>";
 // Get list of UMD departments
 //print_r($wrapper->departments());
 
+// Get list of UMD majors
+//print_r($wrapper->majors());
+
 // Find professors by name
 //echo "<h1>Professor by name</h1>";
 //print_r($wrapper->professors("LaRia Rogers"));

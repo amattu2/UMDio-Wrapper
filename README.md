@@ -193,6 +193,7 @@ Array
 ## semesters()
 Return a single dimensional array of supported schedule-of-classes semesters by [UMD.io](https://umd.io). Formatted in `YYYYMM` date format.
 
+No arguments.
 ```PHP
 print_r($wrapper->semesters());
 ```
@@ -211,6 +212,7 @@ Array
 ## departments()
 Returns a two-dimensional array of University of Maryland departments.
 
+No arguments.
 ```PHP
 print_r($wrapper->departments());
 ```
@@ -232,7 +234,7 @@ Array
 ## professors(string $name, string $course_id)
 Fetch an array of professors by either their full name or a course ID.
 
-By name
+By `name`
 ```PHP
 print_r($wrapper->professors("LaRia Rogers"));
 ```
@@ -266,5 +268,29 @@ Array
       ...
     )
   )
+)
+```
+
+## majors()
+Returns a multi-dimensional array of UMD majors.
+
+No arguments.
+```PHP
+print_r($wrapper->majors());
+```
+
+Output
+```JSON
+Array
+(
+  [0] => Array
+  (
+      ["major_id"] => 118
+      ["name"] => Accounting
+      ["college"] =>   Robert H. Smith School of Business
+      ["url"] => https://www.rhsmith.umd.edu/programs/undergraduate/academics/academic-majors
+  )
+
+  ...
 )
 ```
