@@ -38,6 +38,8 @@ class UMDIO {
     "majors" => "https://api.umd.io/v1/majors/list",
     "buildings_list" => "https://api.umd.io/v1/map/buildings",
     "building" => "https://api.umd.io/v1/map/buildings/%s",
+    "bus_routes" => "https://api.umd.io/v1/bus/routes",
+    "bus_route" => "https://api.umd.io/v1/bus/routes/%s",
   );
 
   /**
@@ -416,6 +418,38 @@ class UMDIO {
 
     // Fetch result
     return $this->http_get(sprintf($this->endpoints["building"], $building_id));
+  }
+
+  /**
+   * Get full UMD bus route listing
+   *
+   * @return array bus routes
+   * @throws None
+   * @author Alec M. <https://amattu.com>
+   * @date 2021-08-21
+   */
+  public function bus_routes() : array
+  {
+    return $this->http_get($this->endpoints["bus_routes"]);
+  }
+
+  /**
+   * Get info about a UMD bus route
+   *
+   * @param string $route_id bus route id
+   * @return array info about bus route
+   * @throws TypeError
+   * @author Alec M. <https://amattu.com>
+   * @date 2021-08-21
+   */
+  public function bus_route(string $route_id) : array
+  {
+    // Check arguments
+    if (!$route_id)
+      return [];
+
+    // Fetch result
+    return $this->http_get(sprintf($this->endpoints["bus_route"], $route_id));
   }
 
   /**

@@ -51,4 +51,10 @@ echo "<pre>";
 //print_r($wrapper->buildings());
 
 // Get particular UMD building
-print_r($wrapper->building("F01"));
+//print_r($wrapper->building("F01"));
+
+// List all UMD bus routes
+//print_r($wrapper->bus_routes());
+
+// Get info about a UMD bus route by ID
+print_r($wrapper->bus_route("104"));

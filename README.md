@@ -353,3 +353,59 @@ Array
   ["count"] => 1
 )
 ```
+
+## bus_routes()
+Get full listing of UMD bus routes.
+
+No arguments
+```PHP
+print_r($wrapper->bus_routes());
+```
+
+Output
+```JSON
+Array
+(
+  [0] => Array
+  (
+      [route_id] => 104
+      [title] => 104 College Park Metro
+  )
+
+  ...
+)
+```
+
+## bus_route(string $route_id)
+Returns a comprehensive collection of details about a bus route.
+
+```PHP
+print_r($wrapper->bus_route("104"));
+```
+
+Output (Substantially redacted due to amount of data returned)
+```JSON
+Array
+(
+  [0] => Array
+  (
+    ["route_id"] => 104
+    ["title"] => 104 College Park Metro
+    ["lat_max"] => 38.9899498
+    ["lat_min"] => 38.9755375
+    ["long_max"] => -76.9266478
+    ["long_min"] => -76.9407719
+    ["stops"] => Array
+    (
+      [0] => regdrgar_d
+      [1] => campmath
+      [2] => paingree
+      [3] => painrhod
+      [4] => cpmetro_d
+      [5] => painrhod_in
+      [6] => painglen
+    )
+
+    ...
+)
+```
