@@ -83,8 +83,7 @@ class UMDIO {
    * @author Alec M. <https://amattu.com>
    * @date 2021-08-20
    */
-  public function __construct(string $semester = "", string $dept_id = "",
-    int $per_page = 30)
+  public function __construct(string $semester = "", string $dept_id = "", int $per_page = 30)
   {
     // Check Semester
     if (strlen($semester) === 6)
