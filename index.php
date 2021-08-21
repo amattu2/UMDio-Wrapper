@@ -26,5 +26,8 @@ echo "<pre>";
 // Get ALL course sections
 //print_r($wrapper->sections());
 
-// Get course by section
-print_r($wrapper->section("AASP100-0101"));
+// Get a specific course section's detail
+//print_r($wrapper->section("AASP100-0101"));
+
+// Get a specific course info
+print_r($wrapper->course("INST414"));

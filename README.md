@@ -134,3 +134,58 @@ Array
   )
 )
 ```
+
+## course(string $course_id)
+Get all details about a specific course
+
+```PHP
+print_r($wrapper->course("INST414"));
+```
+
+Output
+```JSON
+Array
+(
+  [0] => Array
+  (
+    ["course_id"] => INST414
+    ["semester"] => 202108
+    ["name"] => Data Science Techniques
+    ["dept_id"] => INST
+    ["department"] => Information Studies
+    ["credits"] => 3
+    ["description"] => An exploration of how to extract insights from large-scale datasets. The course will cover the complete analytical funnel from data extraction and cleaning to data analysis and insights interpretation and visualization. The data analysis component will focus on techniques in both supervised and unsupervised learning to extract information from datasets. Topics will include clustering, classification, and regression techniques.  Through homework assignments, a project, exams and in-class activities, students will practice working with these techniques and tools to extract relevant information from structured and unstructured data.
+    ["grading_method"] => Array
+    (
+      [0] => Regular
+      [1] => Audit
+    )
+
+    [gen_ed] => Array
+    (
+    )
+
+    [core] => Array
+    (
+    )
+
+    [relationships] => Array
+    (
+      ["coreqs"] =>
+      ["prereqs"] => 1 course with a minimum grade of C- from (INST201, INST301); and minimum grade of C- in INST126, INST314, STAT100, MATH115, and PSYC100.
+      ["formerly"] =>
+      ["restrictions"] => Must be in Information Science program.
+      ["additional_info"] =>
+      ["also_offered_as"] =>
+      ["credit_granted_for"] =>
+    )
+
+    [sections] => Array
+    (
+      [0] => INST414-0101
+      [1] => INST414-0102
+      [2] => INST414-0103
+    )
+  )
+)
+```

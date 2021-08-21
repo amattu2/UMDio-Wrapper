@@ -31,6 +31,7 @@ class UMDIO {
     "course_list" => "https://api.umd.io/v1/courses/list",
     "sections" => "https://api.umd.io/v1/courses/sections",
     "section" => "https://api.umd.io/v1/courses/sections/%s",
+    "course" => "https://api.umd.io/v1/courses/%s",
   );
 
   /**
@@ -270,10 +271,10 @@ class UMDIO {
   }
 
   /**
-   * Get course section info
+   * Get a course section info
    *
    * @param string $section section ID
-   * @return array course info
+   * @return array course section info
    * @throws TypeError
    * @author Alec M. <https://amattu.com>
    * @date 2021-08-20
@@ -289,6 +290,28 @@ class UMDIO {
 
     // Fetch result
     return $this->http_get(sprintf($this->endpoints["section"], $section), $options);
+  }
+
+  /**
+   * Get a course info
+   *
+   * @param string $course_id course ID
+   * @return array course info
+   * @throws TypeError
+   * @author Alec M. <https://amattu.com>
+   * @date 2021-08-21Tfalse13:false49:false59-040
+   */
+  public function course(string $course_id) : array
+  {
+    // Variables
+    $options = Array();
+
+    // Add query options
+    if ($this->semester)
+      $options["semester"] = $this->semester;
+
+    // Fetch result
+    return $this->http_get(sprintf($this->endpoints["course"], $course_id), $options);
   }
 
   /**
