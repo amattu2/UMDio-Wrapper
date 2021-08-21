@@ -36,6 +36,8 @@ class UMDIO {
     "departments" => "https://api.umd.io/v1/courses/departments",
     "professors" => "https://api.umd.io/v1/professors",
     "majors" => "https://api.umd.io/v1/majors/list",
+    "buildings_list" => "https://api.umd.io/v1/map/buildings",
+    "building" => "https://api.umd.io/v1/map/buildings/%s",
   );
 
   /**
@@ -382,6 +384,38 @@ class UMDIO {
 
     // Fetch result
     return $this->http_get($this->endpoints["professors"], $options);
+  }
+
+  /**
+   * Get a full list of UMD buildings
+   *
+   * @return array buildings on UMD campus
+   * @throws None
+   * @author Alec M. <https://amattu.com>
+   * @date 2021-08-21
+   */
+  public function buildings() : array
+  {
+    return $this->http_get($this->endpoints["buildings_list"]);
+  }
+
+  /**
+   * Get building details by building id
+   *
+   * @param string $building_id UMD building id
+   * @return array building info
+   * @throws TypeError
+   * @author Alec M. <https://amattu.com>
+   * @date 2021-08-21
+   */
+  public function building(string $building_id) : array
+  {
+    // Check arguments
+    if (!$building_id)
+      return "";
+
+    // Fetch result
+    return $this->http_get(sprintf($this->endpoints["building"], $building_id));
   }
 
   /**

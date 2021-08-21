@@ -294,3 +294,62 @@ Array
   ...
 )
 ```
+
+## buildings()
+Get full list of buildings on the University of Maryland campus
+
+```PHP
+print_r($wrapper->buildings());
+```
+
+Output
+```JSON
+Array
+(
+  [0] => Array
+  (
+      ["name"] => 251 North
+      ["code"] =>
+      ["id"] => 251
+      ["long"] => -76.949609032536
+      ["lat"] => 38.99274005
+  )
+
+  [1] => Array
+  (
+      ["name"] => 94th Aero Squadron
+      ["code"] =>
+      ["id"] => F08
+      ["long"] => -76.921012271141
+      ["lat"] => 38.9781702
+  )
+
+  ...
+)
+```
+
+## building(string $building_id)
+Get details about a particular UMD building.
+
+```PHP
+print_r($wrapper->building("F01"));
+```
+
+Output
+```JSON
+Array
+(
+  ["data"] => Array
+  (
+      [0] => Array
+      (
+          ["name"] => A Harvey Wiley Federal Building FDA
+          ["code"] => FDA
+          ["id"] => F01
+          ["long"] => -76.926196584649
+          ["lat"] => 38.9770124
+      )
+  )
+  ["count"] => 1
+)
+```

@@ -46,3 +46,9 @@ echo "<pre>";
 //print_r($wrapper->professors("LaRia Rogers"));
 //echo "<h1>Professor by courses</h1>";
 //print_r($wrapper->professors("", "CMSC216"));
+
+// Get list of all UMD buildings
+//print_r($wrapper->buildings());
+
+// Get particular UMD building
+print_r($wrapper->building("F01"));
