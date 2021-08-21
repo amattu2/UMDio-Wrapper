@@ -409,3 +409,52 @@ Array
     ...
 )
 ```
+
+## bus_stops()
+Returns an array of all available UMD bus stops.
+
+No arguments.
+```PHP
+print_r($wrapper->bus_stops());
+```
+
+Output
+```JSON
+Array
+(
+  [0] => Array
+  (
+    ["stop_id"] => regdrgar_d
+    ["title"] => Regents Drive Garage
+  )
+
+  [1] => Array
+  (
+    ["stop_id"] => campmath
+    ["title"] => Campus Dr at Math Slip
+  )
+
+  ...
+)
+```
+
+## bus_stop(string $stop_id)
+Returns information about the selected bus stop.
+
+```PHP
+print_r($wrapper->bus_stop("laplat"));
+```
+
+Output
+```JSON
+Array
+(
+  [0] => Array
+  (
+    ["stop_id"] => laplat
+    ["title"] => La Plata Hall
+    ["lat"] => 38.9922186
+    ["long"] => -76.94563
+  )
+)
+```

@@ -57,4 +57,10 @@ echo "<pre>";
 //print_r($wrapper->bus_routes());
 
 // Get info about a UMD bus route by ID
-print_r($wrapper->bus_route("104"));
+//print_r($wrapper->bus_route("104"));
+
+// List all of UMD bus stops
+//print_r($wrapper->bus_stops());
+
+// List info about a bus stop
+print_r($wrapper->bus_stop("laplat"));

@@ -40,6 +40,8 @@ class UMDIO {
     "building" => "https://api.umd.io/v1/map/buildings/%s",
     "bus_routes" => "https://api.umd.io/v1/bus/routes",
     "bus_route" => "https://api.umd.io/v1/bus/routes/%s",
+    "bus_stops" => "https://api.umd.io/v1/bus/stops",
+    "bus_stop" => "https://api.umd.io/v1/bus/stops/%s",
   );
 
   /**
@@ -450,6 +452,38 @@ class UMDIO {
 
     // Fetch result
     return $this->http_get(sprintf($this->endpoints["bus_route"], $route_id));
+  }
+
+  /**
+   * Get full list of UMD DOT bus stops
+   *
+   * @return array bus stops
+   * @throws None
+   * @author Alec M. <https://amattu.com>
+   * @date 2021-08-21
+   */
+  public function bus_stops() : array
+  {
+    return $this->http_get($this->endpoints["bus_stops"]);
+  }
+
+  /**
+   * Get details about the selected bus stop
+   *
+   * @param string $stop_id UMD bus stop ID
+   * @return array bus stop info
+   * @throws TypeError
+   * @author Alec M. <https://amattu.com>
+   * @date 2021-08-21
+   */
+  public function bus_stop(string $stop_id) : array
+  {
+    // Check arguments
+    if (!$stop_id)
+      return [];
+
+    // Fetch result
+    return $this->http_get(sprintf($this->endpoints["bus_stop"], $stop_id));
   }
 
   /**
