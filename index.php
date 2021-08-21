@@ -33,4 +33,7 @@ echo "<pre>";
 //print_r($wrapper->course("INST414"));
 
 // Get the list of supported semester
-print_r($wrapper->semesters());
+//print_r($wrapper->semesters());
+
+// Get list of UMD departments
+print_r($wrapper->departments());

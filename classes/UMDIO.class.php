@@ -33,6 +33,7 @@ class UMDIO {
     "section_info" => "https://api.umd.io/v1/courses/sections/%s",
     "course_info" => "https://api.umd.io/v1/courses/%s",
     "semesters" => "https://api.umd.io/v1/courses/semesters",
+    "departments" => "https://api.umd.io/v1/courses/departments",
   );
 
   /**
@@ -299,7 +300,7 @@ class UMDIO {
    * @return array course info
    * @throws TypeError
    * @author Alec M. <https://amattu.com>
-   * @date 2021-08-21Tfalse13:false49:false59-040
+   * @date 2021-08-21
    */
   public function course(string $course_id) : array
   {
@@ -320,11 +321,24 @@ class UMDIO {
    * @return array supported semesters (YYYYMM)
    * @throws None
    * @author Alec M. <https://amattu.com>
-   * @date 2021-08-21Tfalse14:01:false43-040
+   * @date 2021-08-21
    */
   public function semesters() : array
   {
     return $this->http_get($this->endpoints["semesters"]);
+  }
+
+  /**
+   * Get an array of UMD departments
+   *
+   * @return array UMD departments
+   * @throws None
+   * @author Alec M. <https://amattu.com>
+   * @date 2021-08-21
+   */
+  public function departments() : array
+  {
+    return $this->http_get($this->endpoints["departments"]);
   }
 
   /**

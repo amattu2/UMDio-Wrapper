@@ -191,7 +191,7 @@ Array
 ```
 
 ## semesters()
-Return an array of supported schedule-of-classes semesters by [UMD.io](https://umd.io). Formatted in `YYYYMM` date format.
+Return a single dimensional array of supported schedule-of-classes semesters by [UMD.io](https://umd.io). Formatted in `YYYYMM` date format.
 
 ```PHP
 print_r($wrapper->semesters());
@@ -205,5 +205,26 @@ Array
   [1] => 201712
   [2] => 201801
   ...
+)
+```
+
+## departments()
+Returns a two-dimensional array of University of Maryland departments.
+
+```PHP
+print_r($wrapper->departments());
+```
+
+Output
+```JSON
+Array
+(
+    [0] => Array
+    (
+      ["dept_id"] => AAPS
+      ["department"] => Academic Achievement Programs
+    )
+
+    ...
 )
 ```
