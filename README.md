@@ -189,3 +189,21 @@ Array
   )
 )
 ```
+
+## semesters()
+Return an array of supported schedule-of-classes semesters by [UMD.io](https://umd.io). Formatted in `YYYYMM` date format.
+
+```PHP
+print_r($wrapper->semesters());
+```
+
+Output
+```JSON
+Array
+(
+  [0] => 201708
+  [1] => 201712
+  [2] => 201801
+  ...
+)
+```

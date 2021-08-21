@@ -30,8 +30,9 @@ class UMDIO {
     "courses" => "https://api.umd.io/v1/courses",
     "course_list" => "https://api.umd.io/v1/courses/list",
     "sections" => "https://api.umd.io/v1/courses/sections",
-    "section" => "https://api.umd.io/v1/courses/sections/%s",
-    "course" => "https://api.umd.io/v1/courses/%s",
+    "section_info" => "https://api.umd.io/v1/courses/sections/%s",
+    "course_info" => "https://api.umd.io/v1/courses/%s",
+    "semesters" => "https://api.umd.io/v1/courses/semesters",
   );
 
   /**
@@ -270,7 +271,7 @@ class UMDIO {
   }
 
   /**
-   * Get a course section info
+   * Get a specific course section's info
    *
    * @param string $section section ID
    * @return array course section info
@@ -288,11 +289,11 @@ class UMDIO {
       $options["semester"] = $this->semester;
 
     // Fetch result
-    return $this->http_get(sprintf($this->endpoints["section"], $section), $options);
+    return $this->http_get(sprintf($this->endpoints["section_info"], $section), $options);
   }
 
   /**
-   * Get a course info
+   * Get a specific course details
    *
    * @param string $course_id course ID
    * @return array course info
@@ -310,7 +311,20 @@ class UMDIO {
       $options["semester"] = $this->semester;
 
     // Fetch result
-    return $this->http_get(sprintf($this->endpoints["course"], $course_id), $options);
+    return $this->http_get(sprintf($this->endpoints["course_info"], $course_id), $options);
+  }
+
+  /**
+   * Get array of supported semesters by API
+   *
+   * @return array supported semesters (YYYYMM)
+   * @throws None
+   * @author Alec M. <https://amattu.com>
+   * @date 2021-08-21Tfalse14:01:false43-040
+   */
+  public function semesters() : array
+  {
+    return $this->http_get($this->endpoints["semesters"]);
   }
 
   /**

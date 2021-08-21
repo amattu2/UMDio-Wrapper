@@ -30,4 +30,7 @@ echo "<pre>";
 //print_r($wrapper->section("AASP100-0101"));
 
 // Get a specific course info
-print_r($wrapper->course("INST414"));
+//print_r($wrapper->course("INST414"));
+
+// Get the list of supported semester
+print_r($wrapper->semesters());
